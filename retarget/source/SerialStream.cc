@@ -1,6 +1,6 @@
-#include "serial_stream.h"
+#include "SerialStream.h"
 
-void Serial_stream::puts(const char * pString){
+void SerialStream::puts(const char * pString){
 	char newChar; 
 	int i;
 	for(i = 0 ; i < 81; i++){
@@ -13,7 +13,7 @@ void Serial_stream::puts(const char * pString){
 	}
 }
 
-int Serial_stream::gets(char * pBuffer, int bufferSize){
+int SerialStream::gets(char * pBuffer, int bufferSize){
 	char newChar; 
 	int i ;
 	for(i = 0 ; i < (bufferSize - 1); i++){
@@ -31,7 +31,7 @@ int Serial_stream::gets(char * pBuffer, int bufferSize){
 
 #define OUT_BUFFER_SIZE 80
 
-void Serial_stream::printf(const char * format ,...){
+void SerialStream::printf(const char * format ,...){
 	char * tempBuffer;
 	va_list args;
 	va_start(args, format);
