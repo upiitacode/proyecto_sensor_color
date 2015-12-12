@@ -19,7 +19,7 @@ void osInitall(void);
 int main(){
 	//Usar application
 	//osInitAll();
-	PWM* pwm = new PWM_TIMER2_CH1(15,1999); //  2000us -> a 500Hz
+	PWM* pwm = new PWM_TIMER2_CH1(15,1000); //  1000us -> a 1KHz
 	MainApp::main(pwm);
 	return 0;
 }
