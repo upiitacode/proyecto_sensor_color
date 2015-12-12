@@ -1,5 +1,6 @@
 #include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
-#include "retarget_stm32f4.h"
+#include "PWM_stm32f4.h"
+#include "MainApp.h"
 
 void tarea1(void const * arguments); //tarea 1
 osThreadId  tarea1ID;	//identificador del hilo tarea 1
@@ -12,17 +13,21 @@ osThreadDef (tarea2,osPriorityNormal,1,0);// macro para definir tareas (aputando
 void tarea1Init(void);//funcion que iniciliza la tarea1
 void tarea2Init(void);//funcion que iniciliza la tarea1
 
+void osInitall(void);
+
+
 int main(){
-	//User application
-	USART2_init(9600);
-	USART2_sendChar('g');
+	//Usar application
+	//osInitAll();
+	PWM* pwm = new PWM_TIMER2_CH1(15,1999); //  2000us -> a 500Hz
+	MainApp::main(pwm);
+	return 0;
+}
+void osInitAll(void){
 	osKernelInitialize();
 	tarea1Init();
 	tarea2Init();
 	osKernelStart();
-	while(1){
-		osDelay(1000);
-	}
 }
 
 void tarea1Init(void){

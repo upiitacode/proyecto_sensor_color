@@ -1,4 +1,5 @@
 #include "retarget_stm32f4.h"
+#include "stm32f4xx.h"                  // Device header
 
 void USART2_init(int baudrate){
 	GPIO_InitTypeDef GPIO_InitStructure;

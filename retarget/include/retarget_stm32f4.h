@@ -1,6 +1,5 @@
 #ifndef _RETARGET_STM32F4_H
 #define _RETARGET_STM32F4_H
-#include "stm32f4xx.h"                  // Device header
 
 #ifdef __cplusplus
 extern "C" {

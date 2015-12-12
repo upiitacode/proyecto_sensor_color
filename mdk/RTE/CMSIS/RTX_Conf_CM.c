@@ -62,7 +62,7 @@
 //   <i> Defines stack size for main thread.
 //   <i> Default: 200
 #ifndef OS_MAINSTKSIZE
- #define OS_MAINSTKSIZE 64      // this stack size value is in words
+ #define OS_MAINSTKSIZE 512      // this stack size value is in words
 #endif
  
 //   <o>Number of threads with user-provided stack size <0-250>
@@ -117,7 +117,7 @@
 //   <i> When the Cortex-M SysTick timer is used, the input clock 
 //   <i> is on most systems identical with the core clock.
 #ifndef OS_CLOCK
- #define OS_CLOCK       64000000
+ #define OS_CLOCK       16000000
 #endif
  
 //   <o>RTX Timer tick interval value [us] <1-1000000>
