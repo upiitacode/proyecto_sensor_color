@@ -1,5 +1,7 @@
 #include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
 #include "PWM_stm32f4.h"
+#include "SerialStream_stm32f4.h"
+#include "cadc_stm32f4.h"
 #include "MainApp.h"
 
 void tarea1(void const * arguments); //tarea 1
@@ -10,10 +12,15 @@ void osInitAll(void);
 void tarea1Init(void);//funcion que iniciliza la tarea1
 
 int main(){
-	//Usar application
+	// Init OS
 	osInitAll();
+	// HW configuration
+	SerialStream* serial  = new SerialUSART2(9600);
 	PWM* pwm = new PWM_TIMER2_CH1(15,1000); //  1000us -> a 1KHz
-	MainApp::main(pwm);
+	cadc_init();
+	//Usar application
+	serial->printf("\nHello World\n");
+	MainApp::main(pwm, serial);
 	return 0;
 }
 void osInitAll(void){
